@@ -49,3 +49,6 @@
         " Turn syntax highlighting on.
         syntax on
     ```
+- conda
+    - install mini-conda (m1 version)
+    - create new working env
