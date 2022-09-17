@@ -19,6 +19,10 @@
 }
 ```
 
+## commands
+
+- toggle word wrap: option + z
+
 ## Source Control
 
 - show diff side by side for both text files and Jupyter NB
