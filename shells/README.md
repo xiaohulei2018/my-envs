@@ -47,6 +47,8 @@
   - CLI shell: bash, zsh, fish, etc.
 - Do different shells have different commands?
 - TTY demystified
+  - <http://www.linusakesson.net/programming/tty/index.php>
+  - Tele type Writer
 - Fundamental differences between shells
 - Login shell and non-login shell, interactive shell and non-interactive shell
   |    <br>                   |    <br>login                                                                                                  |    <br>Non-login                                                                                                                                     |
