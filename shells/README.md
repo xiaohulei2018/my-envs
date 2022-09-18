@@ -34,6 +34,8 @@
 
 - Kernel: core of the operating system (Inner layer)
 - Shell: outer layer of OS
+- ![](images/shell_1.png)
+- ![](images/shell_2.png)
 
 ## Questions
 
@@ -53,6 +55,7 @@
   |    <br>Non-interactive    |    <br>Extremely rare,   unlikely to encounter                                                                |    <br>Run a script                                                                                                                                  |
 
 ### Login shell
+
 - Purpose of a login shell?
   - The purpose of a login shell isn’t to handle login, it’s to behave appropriately as the first shell in a login session:
     - mainly, that means processing startup files which should only be processed once per login session,
@@ -76,7 +79,7 @@
     - User wide: ~/
   - The non-login, interactive shells benefit from both profile and RC files.
 
-## Commands
+### check your shells
 
 ```shell
 # show default shell
@@ -86,5 +89,20 @@ $cat /etc/shells
 # process status, current shell
 $ps
 ```
+
+## Linux Commands
+
+### Types of Commands
+
+- Program executables
+- Alias
+- Shell reserved words
+- Shell functions
+- Built-in commands (built into the shell, thus you cannot find them within the file system)
+
+### Linux dir structures
+
+- ![](images/linux_sys_dir_naming.png)
+
 
 ## References
