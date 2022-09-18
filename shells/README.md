@@ -102,9 +102,72 @@ $ps
 - Shell functions
 - Built-in commands (built into the shell, thus you cannot find them within the file system)
 
+### what it means for a file to be executable
+
+#### What is a “program”?
+
+- On a Unix-like system, it’s a file that has executable permissions for some user or users.
+  - Often these are encoded in a “binary” format—simply long strings of 0’s and 1’s representing machine code that the CPU can interpret
+
+    ```shell
+    $less /bin/echo
+    $less /bin/bash
+    $less /usr/bin/cd
+    $less /bin/ls
+    $file /bin/echo
+    ```
+
+  - Or, human readable script + interpreter + executable permission
+
+#### How to run a "program"?
+
+- To get the shell to run a program (executable file), we specify the absolute or relative path to it.
+  - Abs: /bin/echo hello
+  - Relative: ../../bin/echo
+- Rule breaking part: $PATH
+  - Env var
+  - The $PATH environment variable contains a simple string, describing a list of absolute paths separated by : characters.
+  - The first matching executable file the shell finds in the directories listed in $PATH is the one that is executed.
+
+#### Making files executable
+
+```shell
+# specify interpreter
+  #!/bin/bash
+  #! + absolute path to the bash executable file
+# make the file executable
+  $chmod +x myprog.sh
+
+# It would appear that we might have created a program
+# we do have an executable file
+# Specify abs or relative path to run it:
+  $/home/myprog.sh
+  $./myprog.sh
+```
+
+- What we’ve created is known as a script to be run by an interpreter;
+  - In this case, the interpreter is bash.
+  - A script is a text file with execute permissions set, containing commands that may be run by an interpreter, usually specified through the absolute path at the top of the script with a #! line. 
+  - An interpreter is a program that can execute commands, sometimes specified in a script file.
+
+#### What's happening here?
+
+- The shell has noticed that the user is attempting to run an executable file, and passes the execution off to the operating system. 
+- The operating system, in turn, notices the first two bytes of the file (the #! characters), and rather than having the CPU run the file as binary machine code, executes the program specified on the #! line, passing to that program the contents of the file as “code” to be run by that program. 
+- Because in this case the interpreting program is bash, we can specify any commands that we can send to our shell, bash. 
+- Later, we’ll see that we can create scripts that use much more sophisticated interpreters, like python, to run more sophisticated code.
+
+#### Installing a Program
+
+- To add our own programs to the system so that we can run them at will from any location, we need to:
+  - Obtain or write an executable program or script.
+  - Place it in a directory.
+  - Ensure the absolute path to that directory can be found in $PATH.
+- Traditionally, the location to store one’s own personal executables is in one’s home directory, inside a directory called local, inside a directory called bin.
+  - $~/local/bin
+
 ### Linux dir structures
 
 - ![](images/linux_sys_dir_naming.png)
-
 
 ## References
